@@ -17,6 +17,12 @@ A simple mini activity for ITPS205.
 - Cortes, Paul
 - Zarsadias, Teryx
 
+## Previews
+
+![Main Preview](preview_1.png)
+![Search Preview](preview_2.png)
+![No Posts Found Preview](preview_3.png)
+
 ---
 
 ## Initial Setup Instruction for Members Only:
