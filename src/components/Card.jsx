@@ -4,43 +4,44 @@ export default function Card({ title, desc, initialLikes }) {
   const [likes, setLikes] = useState(initialLikes);
   const [showMore, setShowMore] = useState(false);
 
-  const handleLike = () => {
-    setLikes(likes + 1);
-  };
-
-  const toggleShow = () => {
-    setShowMore(!showMore);
-  };
-
   return (
-    <div className="border border-gray-300 rounded-lg p-4 mb-4 mx-15 my-5 shadow-md transition-all duration-300">
-      <h2 className="text-lg font-bold">{title}</h2>
+    <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200">
+      
+      {/* Title */}
+      <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
 
       {/* Collapsible Content */}
       <div
-        className={`overflow-hidden transition-all duration-500 ${
-          showMore ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+        className={`transition-all duration-500 ease-in-out overflow-hidden ${
+          showMore ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0"
         }`}
       >
-        <p className="mt-2">{desc}</p>
+        <p className="text-gray-600">{desc}</p>
       </div>
 
-      <div className="mt-4 flex justify-between items-center">
-        <p>❤️ {likes}</p>
+      {/* Actions */}
+      <div className="mt-4 flex items-center justify-between">
+        
+        {/* Likes */}
+        <div className="flex items-center gap-2 text-gray-600">
+          <span className="text-lg">❤️</span>
+          <span className="font-medium">{likes}</span>
+        </div>
 
+        {/* Buttons */}
         <div className="flex gap-2">
           <button
-            onClick={handleLike}
-            className="cursor-pointer bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+            onClick={() => setLikes(likes + 1)}
+            className="cursor-pointer px-3 py-1.5 text-sm font-medium rounded-lg bg-green-500 text-white hover:bg-green-600 active:scale-95 transition"
           >
             Like
           </button>
 
           <button
-            onClick={toggleShow}
-            className="cursor-pointer bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600"
+            onClick={() => setShowMore(!showMore)}
+            className="cursor-pointer px-3 py-1.5 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 active:scale-95 transition"
           >
-            {showMore ? "Show Less" : "Show More"}
+            {showMore ? "Show Less" : "Read More"}
           </button>
         </div>
       </div>
