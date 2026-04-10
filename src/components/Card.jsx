@@ -1,21 +1,49 @@
-import Button from "./Button";
-import Tooltip from "./Tooltip";
-export default function Card({ title, desc }) {
-  return (
-    <div className="border border-gray-300 rounded-lg p-4 mb-4 mx-15 my-5 shadow-md">
-      <h2>{title}</h2>
-      <p>{desc}</p>
-      <div className="mt-4 flex justify-between">
-        <Button variant="like">Like</Button>
-        <span className="text-gray-500 flex gap-2">
-          <Tooltip text="Show more of this content.">
-            <Button variant="more">+</Button>
-          </Tooltip>
+import { useState } from "react";
 
-          <Tooltip text="Show less of this content.">
-            <Button variant="less">-</Button>
-          </Tooltip>
-        </span>
+export default function Card({ title, desc, initialLikes }) {
+  const [likes, setLikes] = useState(initialLikes);
+  const [showMore, setShowMore] = useState(false);
+
+  return (
+    <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200">
+      
+      {/* Title */}
+      <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
+
+      {/* Collapsible Content */}
+      <div
+        className={`transition-all duration-500 ease-in-out overflow-hidden ${
+          showMore ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="text-gray-600">{desc}</p>
+      </div>
+
+      {/* Actions */}
+      <div className="mt-4 flex items-center justify-between">
+        
+        {/* Likes */}
+        <div className="flex items-center gap-2 text-gray-600">
+          <span className="text-lg">❤️</span>
+          <span className="font-medium">{likes}</span>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => setLikes(likes + 1)}
+            className="cursor-pointer px-3 py-1.5 text-sm font-medium rounded-lg bg-green-500 text-white hover:bg-green-600 active:scale-95 transition"
+          >
+            Like
+          </button>
+
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="cursor-pointer px-3 py-1.5 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 active:scale-95 transition"
+          >
+            {showMore ? "Show Less" : "Read More"}
+          </button>
+        </div>
       </div>
     </div>
   );
