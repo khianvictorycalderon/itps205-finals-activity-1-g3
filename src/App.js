@@ -102,14 +102,20 @@ export default function App() {
 
         {/* Cards */}
         <div className="space-y-4">
-          {filteredPosts.map((post, index) => (
-            <Card
-              key={index}
-              title={post.title}
-              desc={post.desc}
-              initialLikes={post.likes}
-            />
-          ))}
+          {filteredPosts.length === 0 ? (
+            <p className="text-center text-gray-500 mt-6">
+              No posts found.
+            </p>
+          ) : (
+            filteredPosts.map((post, index) => (
+              <Card
+                key={index}
+                title={post.title}
+                desc={post.desc}
+                initialLikes={post.likes}
+              />
+            ))
+          )}
         </div>
         
       </div>
