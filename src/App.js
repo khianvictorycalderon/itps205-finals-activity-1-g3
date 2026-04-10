@@ -10,6 +10,8 @@
 
 */
 import Card from "./components/Card";
+import { useState } from "react";
+import SearchBar from "./components/SearchBar";
 
 const POSTS = [
   {
@@ -75,14 +77,27 @@ const POSTS = [
 ];
 
 export default function App() {
+  const [search, setSearch] = useState("");
+
+  const filteredPosts = POSTS.filter((post) =>
+    post.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <div>
+    <div className="p-4">
       <h2 className="text-green-600">ITPS205 Show/Hide Content App</h2>
       <p>Group 3</p>
-      <Card
-        title="Title"
-        desc="Description"
-      />
+
+      <SearchBar search={search} setSearch={setSearch} />
+
+      {filteredPosts.map((post, index) => (
+        <Card
+          key={index}
+          title={post.title}
+          desc={post.desc}
+          initialLikes={post.likes}
+        />
+      ))}
     </div>
   );
 }
