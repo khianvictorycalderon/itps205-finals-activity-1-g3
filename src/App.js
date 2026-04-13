@@ -15,7 +15,7 @@ import SearchBar from "./components/SearchBar";
 
 const POSTS = [
   {
-    title: "Introduction to Our Platform",
+    title: "Introduction",
     desc: "Discover the core features and benefits of our platform designed to enhance your productivity and streamline your workflow.",
     likes: 12,
   },
@@ -35,7 +35,7 @@ const POSTS = [
     likes: 30,
   },
   {
-    title: "User Experience Enhancements",
+    title: "User Experience",
     desc: "A closer look at the improvements we’ve made to ensure a smoother and more intuitive user experience.",
     likes: 22,
   },
@@ -85,7 +85,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center">
-      <div className="w-full max-w-3xl p-6">
+      <div className="w-full max-w-5xl p-6">
         
         {/* Header */}
         <div className="mb-6 text-center">
@@ -101,7 +101,7 @@ export default function App() {
         </div>
 
         {/* Cards */}
-        <div className="space-y-4">
+        <div className="grid grid-cols-3 gap-4 items-start">
           {filteredPosts.length === 0 ? (
             <p className="text-center text-gray-500 mt-6">
               No posts found.
