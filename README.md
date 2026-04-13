@@ -20,8 +20,6 @@ A simple mini activity for ITPS205.
 ## Previews
 
 ![Main Preview](preview_1.png)
-![Search Preview](preview_2.png)
-![No Posts Found Preview](preview_3.png)
 
 ---
 
