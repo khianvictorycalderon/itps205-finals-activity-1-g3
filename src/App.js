@@ -80,13 +80,12 @@ export default function App() {
   const [search, setSearch] = useState("");
 
   const filteredPosts = POSTS.filter((post) =>
-    post.title.toLowerCase().includes(search.toLowerCase())
+    post.title.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center">
-      <div className="w-full max-w-3xl p-6">
-        
+      <div className="w-full max-w-7xl p-6">
         {/* Header */}
         <div className="mb-6 text-center">
           <h2 className="text-3xl font-bold text-green-600">
@@ -96,16 +95,14 @@ export default function App() {
         </div>
 
         {/* Search */}
-        <div className="mb-6">
+        <div className="mb-6 mx-10">
           <SearchBar search={search} setSearch={setSearch} />
         </div>
 
         {/* Cards */}
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredPosts.length === 0 ? (
-            <p className="text-center text-gray-500 mt-6">
-              No posts found.
-            </p>
+            <p className="text-center text-gray-500 mt-6">No posts found.</p>
           ) : (
             filteredPosts.map((post, index) => (
               <Card
@@ -117,7 +114,6 @@ export default function App() {
             ))
           )}
         </div>
-        
       </div>
     </div>
   );

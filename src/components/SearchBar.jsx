@@ -5,7 +5,7 @@ export default function SearchBar({ search, setSearch }) {
       placeholder="Search posts..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
-      className="border p-2 rounded w-full mb-4"
+      className="border py-2 rounded-full w-full mb-4 px-4"
     />
   );
 }

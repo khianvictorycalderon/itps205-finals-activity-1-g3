@@ -3,10 +3,14 @@ import { useState } from "react";
 export default function Card({ title, desc, initialLikes }) {
   const [likes, setLikes] = useState(initialLikes);
   const [showMore, setShowMore] = useState(false);
-
+  const [likeState, setLikeState] = useState(false);
+  const styles = {
+    like: "cursor-pointer px-3 py-1.5 text-sm font-medium rounded-lg bg-green-500 text-white hover:bg-green-600 active:scale-95 transition",
+    dislike:
+      "cursor-pointer px-3 py-1.5 text-sm font-medium rounded-lg bg-red-500 text-white hover:bg-red-600 active:scale-95 transition",
+  };
   return (
     <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200">
-      
       {/* Title */}
       <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
 
@@ -21,20 +25,27 @@ export default function Card({ title, desc, initialLikes }) {
 
       {/* Actions */}
       <div className="mt-4 flex items-center justify-between">
-        
         {/* Likes */}
         <div className="flex items-center gap-2 text-gray-600">
-          <span className="text-lg">❤️</span>
+          <span className="text-lg">{likeState ? "❤️" : "🩶"}</span>
           <span className="font-medium">{likes}</span>
         </div>
 
         {/* Buttons */}
         <div className="flex gap-2">
           <button
-            onClick={() => setLikes(likes + 1)}
-            className="cursor-pointer px-3 py-1.5 text-sm font-medium rounded-lg bg-green-500 text-white hover:bg-green-600 active:scale-95 transition"
+            onClick={() => {
+              if (likeState === false) {
+                setLikeState(true);
+                setLikes(likes + 1);
+              } else {
+                setLikeState(false);
+                setLikes(likes - 1);
+              }
+            }}
+            className={likeState ? styles.dislike : styles.like}
           >
-            Like
+            {likeState ? "Dislike" : "Like"}
           </button>
 
           <button
