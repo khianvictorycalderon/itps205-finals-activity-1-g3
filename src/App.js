@@ -18,61 +18,73 @@ const POSTS = [
     title: "Introduction",
     desc: "Discover the core features and benefits of our platform designed to enhance your productivity and streamline your workflow.",
     likes: 12,
+    dislikes: 2,
   },
   {
     title: "Getting Started Guide",
     desc: "Learn how to set up your account and begin using our services with this comprehensive step-by-step guide.",
     likes: 25,
+    dislikes: 3,
   },
   {
     title: "Latest Updates",
     desc: "Stay informed about the newest features, improvements, and updates we’ve recently introduced.",
     likes: 18,
+    dislikes: 1,
   },
   {
     title: "Best Practices",
     desc: "Explore recommended strategies and techniques to maximize efficiency and achieve optimal results.",
     likes: 30,
+    dislikes: 4,
   },
   {
     title: "User Experience",
     desc: "A closer look at the improvements we’ve made to ensure a smoother and more intuitive user experience.",
     likes: 22,
+    dislikes: 2,
   },
   {
     title: "Security and Privacy",
     desc: "Understand how we protect your data and maintain high standards of security and confidentiality.",
     likes: 15,
+    dislikes: 1,
   },
   {
     title: "Tips and Tricks",
     desc: "Unlock hidden features and useful shortcuts to make the most out of our platform.",
     likes: 40,
+    dislikes: 5,
   },
   {
     title: "Case Studies",
     desc: "Read real-world examples of how our solutions have helped users achieve their goals.",
     likes: 27,
+    dislikes: 3,
   },
   {
     title: "Community Highlights",
     desc: "Engage with stories, feedback, and contributions from our growing community.",
     likes: 19,
+    dislikes: 2,
   },
   {
     title: "Support and Resources",
     desc: "Access helpful documentation, FAQs, and customer support options whenever you need assistance.",
     likes: 14,
+    dislikes: 1,
   },
   {
     title: "Future Roadmap",
     desc: "Get insights into upcoming features and our long-term vision for continuous improvement.",
     likes: 33,
+    dislikes: 4,
   },
   {
     title: "Contact and Feedback",
     desc: "Reach out to us with your questions, suggestions, and feedback to help us serve you better.",
     likes: 9,
+    dislikes: 0,
   },
 ];
 
@@ -113,6 +125,7 @@ export default function App() {
                 title={post.title}
                 desc={post.desc}
                 initialLikes={post.likes}
+                initialDislikes={post.dislikes}
               />
             ))
           )}
